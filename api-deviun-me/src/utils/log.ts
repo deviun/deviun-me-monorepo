@@ -8,6 +8,7 @@ const log = new DatadogLogger({
   logLevel: 'all',
   allowStdout: true,
   source: 'api-deviun-me',
+  stdoutOnly: process.env.NODE_ENV !== 'production',
 });
 
 export default log;
