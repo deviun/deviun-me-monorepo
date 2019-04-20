@@ -12,7 +12,7 @@ const anyObjectT = createThing({
 export const objectsSchema = createSchema({
   id: stringT(),
   data: anyObjectT(),
-});
+}, ['id', 'data']);
 
 // result
 export const collections: {
