@@ -1,7 +1,6 @@
-// @ts-ignore
-import * as dotenv from 'dotenv';
+import { config as dotenvConfig } from 'dotenv';
 
-dotenv.config();
+dotenvConfig();
 
 const ENV:any = process.env;
 const DEFAULT_SERVER_PORT = 8002;
@@ -16,6 +15,9 @@ interface configT {
   },
   server: {
     port: string;
+  },
+  datadog: {
+    apiKey: string;
   }
 }
 
@@ -29,6 +31,9 @@ const config: configT = {
   },
   server: {
     port: ENV.SERVER_PORT || DEFAULT_SERVER_PORT,
+  },
+  datadog: {
+    apiKey: ENV.DATADOG_API_KEY,
   },
 };
 

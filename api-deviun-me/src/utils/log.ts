@@ -1,11 +1,13 @@
-class Log {
-  static info(...args) { 
-    console.log(...args);
-  }
+import { DatadogLogger } from 'datadog-logger';
+import config from '../../config/index';
 
-  static error(...args) {
-    console.log(...args);
-  }
-}
+const API_KEY = config.datadog.apiKey;
 
-export default Log;
+const log = new DatadogLogger({
+  apiKey: API_KEY,
+  logLevel: 'all',
+  allowStdout: true,
+  source: 'api-deviun-me',
+});
+
+export default log;

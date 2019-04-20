@@ -13,15 +13,20 @@
   "author": "Anton Danilov",
   "license": "ISC",
   "dependencies": {
+    "@types/dotenv": "6.1.1",
     "@types/express": "4.16.1",
     "@types/lodash": "4.14.123",
+    "@types/winston": "2.4.4",
     "body-parser": "1.18.3",
     "celebrate": "9.1.0",
-    "dotenv": "7.0.0",
+    "datadog-logger": "0.0.3",
+    "dotenv": "6.2.0",
     "express": "4.16.4",
     "just-mongo": "2.2.5",
     "lodash": "4.17.11",
-    "nodemon": "1.18.11"
+    "nodemon": "1.18.11",
+    "winston": "3.2.1",
+    "winston-datadog": "1.1.0"
   },
   "devDependencies": {
     "@types/body-parser": "1.17.0"

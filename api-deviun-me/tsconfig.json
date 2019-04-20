@@ -11,8 +11,8 @@
       "just-mongo": [
         "node_modules/just-mongo/index"
       ],
-      "then-redis": [
-        "node_modules/service-kit/types/then-redis.d.ts"
+      "dotenv": [
+        "node_modules/@types/dotenv/index.d.ts"
       ]
     }
   },
