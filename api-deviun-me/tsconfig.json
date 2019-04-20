@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es5",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "paths": {
+      "just-mongo": [
+        "node_modules/just-mongo/index"
+      ],
+      "then-redis": [
+        "node_modules/service-kit/types/then-redis.d.ts"
+      ]
+    }
+  },
+  "include": [
+    "*.ts",
+    "*/**/*.ts",
+    "*/**/*.json"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

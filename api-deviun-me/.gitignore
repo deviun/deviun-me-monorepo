@@ -1,0 +1,6 @@
+node_modules
+package-*
+npm-*
+*.env
+dist
+.vscode
