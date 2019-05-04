@@ -7,6 +7,7 @@ const log = new DatadogLogger({
   apiKey: API_KEY,
   logLevel: 'all',
   allowStdout: true,
+  service: 'deviun-me',
   source: 'api-deviun-me',
   stdoutOnly: process.env.NODE_ENV !== 'production',
 });

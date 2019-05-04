@@ -1,5 +1,5 @@
-import { mongodb, collectionNames } from '../utils/mongodb';
 import { Collection } from 'just-mongo';
+import { mongodb, collectionNames } from '../utils/mongodb';
 
 export interface ObjectT { 
   id: string;
