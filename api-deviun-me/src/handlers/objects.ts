@@ -2,6 +2,7 @@ import { Express, Response, Request } from 'express';
 import { celebrate, Joi } from 'celebrate';
 import { apiResponseOK } from '../helpers/api-helper';
 import ObjectsModel from '../models/objects';
+import { adminOnly } from '../middlewares/admin-access';
 
 const createObject = async (req: Request, res: Response) => {
   const result = await ObjectsModel.create(req.body);
@@ -46,8 +47,8 @@ const dataValidation = celebrate({
 export function factory(app: Express) {
   const route = app.route('/object/:id?');
 
-  route.post(dataValidation, createObject); 
-  route.put(dataValidation, idValidation, updateObject);
-  route.delete(idValidation, deleteObject);
+  route.post(adminOnly, dataValidation, createObject); 
+  route.put(adminOnly, dataValidation, idValidation, updateObject);
+  route.delete(adminOnly, idValidation, deleteObject);
   route.get(idValidation, getObject);
 }

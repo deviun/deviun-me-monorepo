@@ -2,6 +2,7 @@ import { Express, Response, Request } from 'express';
 import { celebrate, Joi } from 'celebrate';
 import { apiResponseOK } from '../helpers/api-helper';
 import ListsModel from '../models/lists';
+import { adminOnly } from '../middlewares/admin-access';
 
 const listIdValidation = celebrate({
   params: Joi.object().keys({
@@ -50,8 +51,8 @@ export function factory(app: Express) {
   const routeOne = app.route('/list/:listId');
   const routeTwo = app.route('/list/:listId/:itemId');
 
-  routeOne.post(listIdValidation, pushItem);
-  routeTwo.put(itemIdValidation, updateItem);
-  routeTwo.delete(itemIdValidation, deleteItem);
+  routeOne.post(adminOnly, listIdValidation, pushItem);
+  routeTwo.put(adminOnly, itemIdValidation, updateItem);
+  routeTwo.delete(adminOnly, itemIdValidation, deleteItem);
   routeOne.get(listIdValidation, getList);
 }
