@@ -1,0 +1,24 @@
+{
+  "name": "deviun-me",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Anton Danilov",
+  "license": "ISC",
+  "dependencies": {
+    "@types/next": "8.0.5",
+    "@types/react": "16.8.16",
+    "@types/styled-components": "4.1.14",
+    "@zeit/next-typescript": "1.1.1",
+    "next": "8.1.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "styled-components": "4.2.0"
+  }
+}
