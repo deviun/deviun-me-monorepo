@@ -15,6 +15,7 @@ export default function mainPage() {
         image="/static/images/DSC_0158-2.jpg"
         color="black"
         height="850px"
+        key="main"
       >
         <HeaderCoverContent />
       </Cover>
