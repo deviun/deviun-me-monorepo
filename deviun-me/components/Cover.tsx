@@ -16,7 +16,7 @@ const CoverStyled = styled.div`
   height: ${(props: CoverStyledPropsT) => props.height || defaultHeight};
   margin: 0px;
   padding: ${(props: CoverStyledPropsT) => props.padding || defaultPadding};
-  color: ${(props: CoverStyledPropsT) => props.color || defaultColor};
+  background-color: ${(props: CoverStyledPropsT) => props.color || defaultColor};
   background-image: url(${(props: CoverStyledPropsT) => props.image});
   background-size: cover;
   background-position: center;
@@ -25,6 +25,7 @@ const CoverStyled = styled.div`
 
 interface CoverPropsT extends CoverStyledPropsT {
   children?: ReactNode;
+  key: any;
 }
 
 export default function Cover({
@@ -33,6 +34,7 @@ export default function Cover({
   padding,
   image,
   height,
+  key,
 }: CoverPropsT) {
   return (
     <CoverStyled
@@ -40,6 +42,7 @@ export default function Cover({
       padding={padding}
       image={image}
       height={height}
+      key={key}
     >
       {children}
     </CoverStyled>
