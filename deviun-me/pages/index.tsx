@@ -7,6 +7,7 @@ import PhotoGrid from './components/main/PhotoGrid';
 import MainTitle from './components/main/MainTitle';
 import Description from './components/main/Description';
 import PageWidthWrapper from './components/common/PagaWidthWrapper';
+import SocialNetworks from './components/main/SocialNetworks';
 
 export default function mainPage() {
   return (
@@ -40,6 +41,38 @@ export default function mainPage() {
 
         Если захотеть, со мной можно встретиться и пообщаться, всем нравится, и тебе советую. Часто люди получают новый опыт общения со мной! Ниже можешь найти мои соц.сети, где можно что-то со мной сделать — лайкнуть, написать или просто посмотреть.`}
       </Description>
+      <SocialNetworks
+        items={[
+          {
+            svgPath: '/static/images/social-network/vk.svg',
+            link: 'https://vk.com/deviun',
+          },
+          {
+            svgPath: '/static/images/social-network/soundcloud.svg',
+            link: 'https://soundcloud.com/anton-deviun',
+          },
+          {
+            svgPath: '/static/images/social-network/github.svg',
+            link: 'https://github.com/deviun',
+          },
+          {
+            svgPath: '/static/images/social-network/telegram.svg',
+            link: 'https://t.me/deviun',
+          },
+          {
+            svgPath: '/static/images/social-network/instagram.svg',
+            link: 'https://instagram.com/adeviun',
+          },
+          {
+            svgPath: '/static/images/social-network/unsplash.svg',
+            link: 'https://unsplash.com/@deviun',
+          },
+          {
+            svgPath: '/static/images/social-network/youtube.svg',
+            link: 'https://www.youtube.com/channel/UCj1rgpTFk16H6nsktitCplQ',
+          },
+        ]}
+      />
     </PageWidthWrapper>
   );
 }
