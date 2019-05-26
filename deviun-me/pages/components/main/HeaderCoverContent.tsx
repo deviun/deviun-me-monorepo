@@ -4,9 +4,8 @@ import styled from 'styled-components';
 const InfoStyled = styled.div`
   color: white;
   font-size: 20px;
-  position: absolute;
-  top: 460px;
-  left: 50px;
+  margin-top: 460px;
+  margin-left: 50px;
 `;
 
 export default function HeaderCoverContent() {
