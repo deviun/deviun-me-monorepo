@@ -8,6 +8,7 @@ import MainTitle from './components/main/MainTitle';
 import Description from './components/main/Description';
 import PageWidthWrapper from './components/common/PagaWidthWrapper';
 import SocialNetworks from './components/main/SocialNetworks';
+import Notes from './components/main/Notes';
 
 export default function mainPage() {
   return (
@@ -70,6 +71,31 @@ export default function mainPage() {
           {
             svgPath: '/static/images/social-network/youtube.svg',
             link: 'https://www.youtube.com/channel/UCj1rgpTFk16H6nsktitCplQ',
+          },
+        ]}
+      />
+      <MainTitle>Notes</MainTitle>
+      <Notes
+        items={[
+          {
+            title: 'История: Начало',
+            link: 'https://vk.com/wall-159364181_1',
+            cover: 'https://pp.userapi.com/c845421/v845421151/118b5e/F5fhmiW6pbY.jpg'
+          },
+          {
+            title: 'История: Часть ||',
+            link: 'https://vk.com/wall-159364181_2',
+            cover: 'https://pp.userapi.com/c840329/v840329126/742ff/hkwq83fYws4.jpg'
+          },
+          {
+            title: 'День рождения в 2016. До переезда в Санкт-Петербруг.',
+            link: 'https://vk.com/wall-159364181_3',
+            cover: 'https://pp.userapi.com/c845323/v845323561/11bc52/izxtDQp80KQ.jpg'
+          },
+          {
+            title: 'DEVIUN 2018',
+            link: 'https://tgraph.io/DEVIUN-2018-12-07',
+            cover: 'https://pp.userapi.com/c852036/v852036631/63ecd/BlP3eNr1xGA.jpg'
           },
         ]}
       />
