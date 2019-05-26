@@ -6,10 +6,13 @@ import HeaderCoverContent from './components/main/HeaderCoverContent';
 import PhotoGrid from './components/main/PhotoGrid';
 import MainTitle from './components/main/MainTitle';
 import Description from './components/main/Description';
+import PageWidthWrapper from './components/common/PagaWidthWrapper';
 
 export default function mainPage() {
   return (
-    <Fragment>
+    <PageWidthWrapper
+      maxWidth={1440}
+    >
       <Head />
       <Cover
         image="/static/images/DSC_0158-2.jpg"
@@ -37,6 +40,6 @@ export default function mainPage() {
 
         Если захотеть, со мной можно встретиться и пообщаться, всем нравится, и тебе советую. Часто люди получают новый опыт общения со мной! Ниже можешь найти мои соц.сети, где можно что-то со мной сделать — лайкнуть, написать или просто посмотреть.`}
       </Description>
-    </Fragment>
+    </PageWidthWrapper>
   );
 }
