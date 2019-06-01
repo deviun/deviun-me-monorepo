@@ -13,7 +13,6 @@ interface SocialNetworksPropsT {
 
 const SocialNetworkStyled = styled.div`
   text-align: center;
-  padding: 80px 0px;
 
   img {
     margin: 0px 15px;

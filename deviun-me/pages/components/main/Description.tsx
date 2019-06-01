@@ -12,6 +12,8 @@ const DescriptionStyled = styled.div`
   width: 1120px;
   margin: 0 auto;
   overflow: none;
+  font-size: 17px;
+  line-height: 25px;
 
   & * {
     white-space: pre-line;
