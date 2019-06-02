@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Padding from '../components/Padding';
+import Padding from './components/common/Padding';
 
-import Cover from '../components/Cover';
+import Cover from './components/common/Cover';
 import Head from './components/common/Head';
 import HeaderCoverContent from './components/main/HeaderCoverContent';
 import PhotoGrid from './components/main/PhotoGrid';

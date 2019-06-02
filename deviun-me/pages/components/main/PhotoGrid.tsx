@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
-import Cover from '../../../components/Cover';
+import Cover from '../common/Cover';
 
 interface PhotoGridPropsT {
   grid: string[][];

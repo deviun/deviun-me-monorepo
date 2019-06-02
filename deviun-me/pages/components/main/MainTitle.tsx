@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import TitleCenter from '../../../components/TitleCenter';
-import Padding from '../../../components/Padding';
+import TitleCenter from '../common/TitleCenter';
+import Padding from '../common/Padding';
 
 interface MainTitlePropsT {
   children: ReactNode;

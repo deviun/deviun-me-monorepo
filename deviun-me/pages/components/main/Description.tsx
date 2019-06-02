@@ -9,7 +9,7 @@ interface DescriptionPropsT {
 const DescriptionStyled = styled.div`
   padding: 20px;
   padding-top: 0px;
-  width: 1120px;
+  width: 1000px;
   margin: 0 auto;
   overflow: none;
   font-size: 17px;
