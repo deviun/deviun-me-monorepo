@@ -19,7 +19,7 @@ const PlaylistsStyled = styled.div`
   a {
     text-decoration: none;
   }
-`;
+`;  
 
 const PlaylistItemStyled = styled.div`
   display: inline-block;
@@ -55,12 +55,12 @@ const PlaylistCoverStyled = styled.div`
 
 const PlaylistCoverShadowStyled = styled.div`
   background-color: rgba(0, 0, 0, 0.45);
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   text-align: center;
 
   .play-button {
-    margin-top: 95px;
+    margin-top: 65px;
   }
 `;
 
