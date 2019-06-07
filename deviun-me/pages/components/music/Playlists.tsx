@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+import { seasonTitles } from '../../constants/season-titles';
 
 interface PlaylistsItemT {
   cover: string; // image url
@@ -70,25 +71,100 @@ const PlaylistTitleStyled = styled.div`
   padding: 10px;
 `;
 
+const YearTitleStyled = styled.h2`
+  color: white;
+  font-weight: bold;
+  margin: 0px;
+  padding: 10px;
+`;
+
+const SeasonTitleStyled = styled.h3`
+  color: white;
+  font-weight: 100;
+  margin: 0px;
+  padding: 10px;
+`;
+
+interface seasonsGridT {
+  year: number;
+  seasonTitle: string;
+  playlists: ReactNode[];
+}
+
+interface seasonIndexesT {
+  [property: string]: number;
+}
+
+const getSeasonIndexName = (year: number, season: string) => `${year}_${season}`;
+
 export default function Playlists({
   list,
 }: PlaylistsPropsT) {
   const reversedLists = [...list].reverse();
+  const seasonsGrid: seasonsGridT[] = [];
+  const seasonIndexes: seasonIndexesT = {};
+  const defaultDate = new Date();
+  const defaultYear = defaultDate.getFullYear();
+  const defaultMonth = defaultDate.getMonth() + 1;
+
+  reversedLists.forEach(({
+    year = defaultYear,
+    month = defaultMonth,
+    link, cover, name,
+  }) => {
+    const seasonTitle = seasonTitles[month];
+    let seasonIndex = seasonIndexes[getSeasonIndexName(year, seasonTitle)];
+
+    if (!seasonIndex && seasonIndex !== 0) {
+      seasonsGrid.push({
+        year,
+        seasonTitle,
+        playlists: [],
+      });
+      seasonIndex = seasonIndexes[getSeasonIndexName(year, seasonTitle)] = seasonsGrid.length - 1;
+    }
+
+    seasonsGrid[seasonIndex].playlists.push((
+      <PlaylistItemStyled>
+        <a href={link} target="_blank">
+          <PlaylistCoverStyled image={cover}>
+            <PlaylistCoverShadowStyled className="shadow-box">
+              <img src="/static/images/play-button.svg" className="play-button" />
+            </PlaylistCoverShadowStyled>
+          </PlaylistCoverStyled>
+          <PlaylistTitleStyled>{name}</PlaylistTitleStyled>
+        </a>
+      </PlaylistItemStyled>
+    ));
+  });
+
+  const renderedYears: {
+    [property: number]: boolean;
+  } = {};
+
   return (
     <PlaylistsStyled>
       {
-        reversedLists.map((playlist) => (
-          <PlaylistItemStyled>
-            <a href={playlist.link} target="_blank">
-              <PlaylistCoverStyled image={playlist.cover}>
-                <PlaylistCoverShadowStyled className="shadow-box">
-                  <img src="/static/images/play-button.svg" className="play-button" />
-                </PlaylistCoverShadowStyled>
-              </PlaylistCoverStyled>
-              <PlaylistTitleStyled>{playlist.name}</PlaylistTitleStyled>
-            </a>
-          </PlaylistItemStyled>
-        ))
+        seasonsGrid.map(({ year, seasonTitle, playlists }) => {
+          let yearTitle = null;
+
+          if (!renderedYears[year]) {
+            yearTitle = (
+              <YearTitleStyled>{year}</YearTitleStyled>
+            );
+            renderedYears[year] = true;
+          }
+          
+          return (
+            <section>
+              {yearTitle}
+              <SeasonTitleStyled>{seasonTitle}</SeasonTitleStyled>
+              <div>
+                {playlists}
+              </div>
+            </section>
+          );
+        })
       }
     </PlaylistsStyled>
   );

@@ -30,6 +30,8 @@ export default function MusicPage () {
               name: 'Single Inside',
               songs: 19,
               time: '1h8m',
+              year: 2018,
+              month: 7,
               link: 'https://itunes.apple.com/ru/playlist/single-inside/pl.u-EdAVzEquaZYdB6z?l=en'
             },
             {
@@ -37,6 +39,8 @@ export default function MusicPage () {
               name: 'AMount. Am out.',
               songs: 20,
               time: '1h11m',
+              year: 2018,
+              month: 7,
               link: 'https://itunes.apple.com/ru/playlist/amount-am-out/pl.u-r2yB1W2sP6X4rZm?l=en'
             },
             {
@@ -44,6 +48,8 @@ export default function MusicPage () {
               name: 'Gotty X',
               songs: 16,
               time: '1h5m',
+              year: 2018,
+              month: 9,
               link: 'https://itunes.apple.com/ru/playlist/gotty-x/pl.u-MDAWv0JCW5MVLko?l=en'
             },
             {
@@ -51,6 +57,8 @@ export default function MusicPage () {
               name: 'iWANTWU',
               songs: 18,
               time: '1h8m',
+              year: 2018,
+              month: 10,
               link: 'https://itunes.apple.com/ru/playlist/iwantwu/pl.u-06oxDBxFWvg8AZ0?l=en'
             },
             {
@@ -58,6 +66,8 @@ export default function MusicPage () {
               name: 'S I l E NT',
               songs: 11,
               time: '45m',
+              year: 2018,
+              month: 10,
               link: 'https://itunes.apple.com/ru/playlist/s-i-l-e-nt/pl.u-XkD04XZcDpPlay9?l=en'
             },
             {
@@ -65,6 +75,8 @@ export default function MusicPage () {
               name: 'Protect At.',
               songs: 21,
               time: '1h37m',
+              year: 2018,
+              month: 10,
               link: 'https://itunes.apple.com/ru/playlist/protect-at/pl.u-r2yB1GGCP6X4rZm?l=en'
             },
             {
@@ -72,6 +84,8 @@ export default function MusicPage () {
               name: 'eye',
               songs: 24,
               time: '1h37m',
+              year: 2018,
+              month: 11,
               link: 'https://itunes.apple.com/ru/playlist/eye/pl.u-06oxDGzFWvg8AZ0?l=en'
             },
             {
@@ -79,6 +93,8 @@ export default function MusicPage () {
               name: '#x',
               songs: 16,
               time: '58m',
+              year: 2018,
+              month: 11,
               link: 'https://itunes.apple.com/ru/playlist/x/pl.u-XkD046LIDpPlay9?l=en'
             },
             {
@@ -86,6 +102,8 @@ export default function MusicPage () {
               name: 'detoxification',
               songs: 10,
               time: '46m',
+              year: 2018,
+              month: 11,
               link: 'https://itunes.apple.com/ru/playlist/detoxification/pl.u-qxylljxu2Zmg9DW?l=en'
             },
             {
@@ -93,6 +111,8 @@ export default function MusicPage () {
               name: 'take',
               songs: 18,
               time: '1h12m',
+              year: 2018,
+              month: 11,
               link: 'https://itunes.apple.com/ru/playlist/take/pl.u-06oxxAaFWvg8AZ0?l=en'
             },
             {
@@ -100,6 +120,8 @@ export default function MusicPage () {
               name: 'End',
               songs: 26,
               time: '1h37m',
+              year: 2018,
+              month: 12,
               link: 'https://itunes.apple.com/ru/playlist/end/pl.u-yZyVVx3TYMK3a1G?l=en'
             },
             {
@@ -107,6 +129,8 @@ export default function MusicPage () {
               name: 'Who',
               songs: 19,
               time: '1h20m',
+              year: 2019,
+              month: 1,
               link: 'https://itunes.apple.com/ru/playlist/who/pl.u-55D66Zlt8q53Bry?l=en'
             },
             {
@@ -114,6 +138,8 @@ export default function MusicPage () {
               name: '0n3',
               songs: 10,
               time: '34m',
+              year: 2019,
+              month: 2,
               link: 'https://itunes.apple.com/ru/playlist/0n3/pl.u-qxyllEMI2Zmg9DW?l=en'
             },
             {
@@ -121,6 +147,8 @@ export default function MusicPage () {
               name: 'Rethink 2.0',
               songs: 16,
               time: '58m',
+              year: 2019,
+              month: 3,
               link: 'https://itunes.apple.com/ru/playlist/rethink-2-0/pl.u-EdAVVGduaZYdB6z?l=en'
             },
             {
@@ -128,6 +156,8 @@ export default function MusicPage () {
               name: 'P1us 1ne',
               songs: 9,
               time: '28m',
+              year: 2019,
+              month: 4,
               link: 'https://itunes.apple.com/ru/playlist/p1us-1ne/pl.u-MDAWWgjuW5MVLko?l=en'
             },
           ]}
