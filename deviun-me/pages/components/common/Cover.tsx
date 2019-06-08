@@ -6,43 +6,40 @@ interface CoverStyledPropsT {
   padding?: string;
   color?: string;
   image?: string;
+  clipPath?: string;
+  overflow?: string;
 }
 
 const defaultPadding = '0px';
 const defaultColor = 'gray';
 const defaultHeight = '100px;'
 const CoverStyled = styled.div`
+  ${(props: CoverStyledPropsT) => `
+    height: ${props.height || defaultHeight}
+    padding: ${props.padding || defaultPadding};
+    background-color: ${props.color || defaultColor};
+    background-image: url(${props.image});
+    clip-path: ${props.clipPath || 'none'};
+    overflow: ${props.overflow || 'hidden'};
+  `}
   width: 100%;
-  height: ${(props: CoverStyledPropsT) => props.height || defaultHeight};
   margin: 0px;
-  padding: ${(props: CoverStyledPropsT) => props.padding || defaultPadding};
-  background-color: ${(props: CoverStyledPropsT) => props.color || defaultColor};
-  background-image: url(${(props: CoverStyledPropsT) => props.image});
   background-size: cover;
   background-position: center;
-  overflow: hidden;
 `;
 
 interface CoverPropsT extends CoverStyledPropsT {
   children?: ReactNode;
-  key: any;
+  key?: any;
 }
 
 export default function Cover({
   children,
-  color,
-  padding,
-  image,
-  height,
-  key,
+  ...props
 }: CoverPropsT) {
   return (
     <CoverStyled
-      color={color}
-      padding={padding}
-      image={image}
-      height={height}
-      key={key}
+      {...props}
     >
       {children}
     </CoverStyled>
