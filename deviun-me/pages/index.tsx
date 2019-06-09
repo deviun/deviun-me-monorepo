@@ -6,7 +6,7 @@ import Cover from './components/common/Cover';
 import Head from './components/common/Head';
 import HeaderCoverContent from './components/main/HeaderCoverContent';
 import PhotoGrid from './components/main/PhotoGrid';
-import MainTitle from './components/main/MainTitle';
+import MainTitle from './components/common/MainTitle';
 import Description from './components/main/Description';
 import PageWidthWrapper from './components/common/PageWidthWrapper';
 import SocialNetworks from './components/main/SocialNetworks';
