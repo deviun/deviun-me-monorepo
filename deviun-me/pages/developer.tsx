@@ -58,7 +58,7 @@ export default function MusicPage() {
           />
           <MainTitle>
             CV
-        </MainTitle>
+          </MainTitle>
           <CVBlock
             data={[
               {
