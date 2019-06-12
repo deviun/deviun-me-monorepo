@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "build-watch": "tsc -w",
-    "start": "./node_modules/nodemon/bin/nodemon.js ./dist/src/index.js"
+    "start": "nodemon ./dist/src/index.js"
   },
   "private": true,
   "main": "./dist/src/index.js",
