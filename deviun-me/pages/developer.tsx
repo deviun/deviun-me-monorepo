@@ -9,6 +9,7 @@ import Padding from './components/common/Padding';
 import MainTitle from './components/common/MainTitle';
 import CVBlock from './components/developer/CVBlock';
 import OpenSourceList from './components/developer/OpenSourceList';
+import SkillsList from './components/developer/SkillsList';
 
 const AvatarStyled = styled.img`
   border-radius: 100%;
@@ -100,6 +101,38 @@ export default function MusicPage() {
             ]}
           />
           <MainTitle>Skills</MainTitle>
+          <SkillsList
+            data={[
+              {
+                imagePath: '/static/images/skills/docker.svg',
+                level: 2,
+              },{
+                imagePath: '/static/images/skills/golang.svg',
+                level: 1,
+              },{
+                imagePath: '/static/images/skills/mongodb.svg',
+                level: 2,
+              },{
+                imagePath: '/static/images/skills/mysql.svg',
+                level: 2,
+              },{
+                imagePath: '/static/images/skills/nextjs.svg',
+                level: 1,
+              },{
+                imagePath: '/static/images/skills/nodejs.svg',
+                level: 3,
+              },{
+                imagePath: '/static/images/skills/reactjs.svg',
+                level: 2,
+              },{
+                imagePath: '/static/images/skills/redis.svg',
+                level: 3,
+              },{
+                imagePath: '/static/images/skills/ts.svg',
+                level: 2,
+              },
+            ]}
+          />
         </Padding>
       </PageWidthWrapper>
     </Fragment>
