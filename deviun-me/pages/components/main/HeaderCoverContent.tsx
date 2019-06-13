@@ -8,10 +8,14 @@ const InfoStyled = styled.div`
   margin-left: 50px;
 `;
 
-export default function HeaderCoverContent() {
+interface HeaderCoverContentPropsT {
+  text: string;
+}
+
+export default function HeaderCoverContent(props: HeaderCoverContentPropsT) {
   return (
     <InfoStyled>
-      Anton Danilov, 20, Saint Petersburg
+      {props.text}
     </InfoStyled>
   );
 }

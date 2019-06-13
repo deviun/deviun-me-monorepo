@@ -25,7 +25,9 @@ export default function MainPage() {
         height="850px"
         key="main"
       >
-        <HeaderCoverContent />
+        <HeaderCoverContent
+          text="Anton Danilov, 20, Saint Petersburg"
+        />
       </Cover>
       <MainTitle>I am a superhero</MainTitle>
       <PhotoGrid grid={[
@@ -105,7 +107,7 @@ export default function MainPage() {
         ]}
       />
      <Padding top="50px" bottom="20px">
-         <EndSmile svgPath="/static/images/smiles/kiss.svg" />
+        <EndSmile svgPath="/static/images/smiles/kiss.svg" />
      </Padding>
     </PageWidthWrapper>
   );
