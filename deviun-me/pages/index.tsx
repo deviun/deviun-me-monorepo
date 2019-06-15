@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { loadMainPageInfo as loadMainPageInfoAction, PageInfoT } from '../actions/mainPageInfo';
 
 import Padding from './components/common/Padding';
 
@@ -13,102 +16,138 @@ import SocialNetworks from './components/main/SocialNetworks';
 import Notes from './components/main/Notes';
 import EndSmile from './components/main/EndSmile';
 
-export default function MainPage() {
-  return (
-    <PageWidthWrapper
-      maxWidth={1440}
-    >
-      <Head />
-      <Cover
-        image="/static/images/DSC_0158-2.jpg"
-        color="black"
-        height="850px"
-        key="main"
+interface propsT {
+  mainPageInfo: PageInfoT;
+  loadMainPageInfo: Function;
+}
+
+class MainPage extends Component<propsT> {
+  constructor(props: propsT) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.loadMainPageInfo();
+  }
+
+  render() {
+    const {
+      mainPageInfo: {
+        coverImage,
+        defaultColor,
+        height,
+        coverText,
+      }
+    } = this.props;
+    return (
+      <PageWidthWrapper
+        maxWidth={1440}
       >
-        <HeaderCoverContent
-          text="Anton Danilov, 20, Saint Petersburg"
-        />
-      </Cover>
-      <MainTitle>I am a superhero</MainTitle>
-      <PhotoGrid grid={[
-        ['/static/images/DSC_0006-4.jpg'],
-        [
-          '/static/images/anton-danilov-666032-unsplash.jpg',
-          '/static/images/EbQx-8ZdOxg.jpg',
-        ],
-      ]} />
-      <MainTitle>About</MainTitle>
-      <Description>
-        {` Основная моя деятельность — разработка веб-сервисов. Увлекся этим еще в 13 лет, в 17 переехал в Санкт-Петербург и с тех пор уже успел поработать в нескольких компаниях. **Узнать** больше…
+        <Head />
+        <Cover
+          image={coverImage}
+          color={defaultColor}
+          height={height}
+          key="main"
+        >
+          <HeaderCoverContent
+            text={coverText}
+          />
+        </Cover>
+        <MainTitle>I am a superhero</MainTitle>
+        <PhotoGrid grid={[
+          ['/static/images/DSC_0006-4.jpg'],
+          [
+            '/static/images/anton-danilov-666032-unsplash.jpg',
+            '/static/images/EbQx-8ZdOxg.jpg',
+          ],
+        ]} />
+        <MainTitle>About</MainTitle>
+        <Description>
+          {` Основная моя деятельность — разработка веб-сервисов. Увлекся этим еще в 13 лет, в 17 переехал в Санкт-Петербург и с тех пор уже успел поработать в нескольких компаниях. **Узнать** больше…
         
-        Помимо задротства одно время писал музыку, сейчас это происходит очень редко, послушать мои старания можно на soundcloud. А сейчас я активно коллекционирую музыку в iTunes. Открыть коллекции…
+          Помимо задротства одно время писал музыку, сейчас это происходит очень редко, послушать мои старания можно на soundcloud. А сейчас я активно коллекционирую музыку в iTunes. Открыть коллекции…
 
-        Конечно, еще нельзя незаметить мой интерес к фотографиям. Здесь ничего серьезного, всего лишь одержимость образами людей.
+          Конечно, еще нельзя незаметить мой интерес к фотографиям. Здесь ничего серьезного, всего лишь одержимость образами людей.
 
-        Если захотеть, со мной можно встретиться и пообщаться, всем нравится, и тебе советую. Часто люди получают новый опыт общения со мной! Ниже можешь найти мои соц.сети, где можно что-то со мной сделать — лайкнуть, написать или просто посмотреть.`}
-      </Description>
-      <Padding top="50px">
-        <SocialNetworks
+          Если захотеть, со мной можно встретиться и пообщаться, всем нравится, и тебе советую. Часто люди получают новый опыт общения со мной! Ниже можешь найти мои соц.сети, где можно что-то со мной сделать — лайкнуть, написать или просто посмотреть.`}
+        </Description>
+        <Padding top="50px">
+          <SocialNetworks
+            items={[
+              {
+                svgPath: '/static/images/social-network/vk.svg',
+                link: 'https://vk.com/deviun',
+              },
+              {
+                svgPath: '/static/images/social-network/soundcloud.svg',
+                link: 'https://soundcloud.com/anton-deviun',
+              },
+              {
+                svgPath: '/static/images/social-network/github.svg',
+                link: 'https://github.com/deviun',
+              },
+              {
+                svgPath: '/static/images/social-network/telegram.svg',
+                link: 'https://t.me/deviun',
+              },
+              {
+                svgPath: '/static/images/social-network/instagram.svg',
+                link: 'https://instagram.com/adeviun',
+              },
+              {
+                svgPath: '/static/images/social-network/unsplash.svg',
+                link: 'https://unsplash.com/@deviun',
+              },
+              {
+                svgPath: '/static/images/social-network/youtube.svg',
+                link: 'https://www.youtube.com/channel/UCj1rgpTFk16H6nsktitCplQ',
+              },
+            ]}
+          />
+        </Padding>
+        <MainTitle>Notes</MainTitle>
+        <Notes
           items={[
             {
-              svgPath: '/static/images/social-network/vk.svg',
-              link: 'https://vk.com/deviun',
+              title: 'История: Начало',
+              link: 'https://vk.com/wall-159364181_1',
+              cover: 'https://pp.userapi.com/c845421/v845421151/118b5e/F5fhmiW6pbY.jpg'
             },
             {
-              svgPath: '/static/images/social-network/soundcloud.svg',
-              link: 'https://soundcloud.com/anton-deviun',
+              title: 'История: Часть ||',
+              link: 'https://vk.com/wall-159364181_2',
+              cover: 'https://pp.userapi.com/c840329/v840329126/742ff/hkwq83fYws4.jpg'
             },
             {
-              svgPath: '/static/images/social-network/github.svg',
-              link: 'https://github.com/deviun',
+              title: 'День рождения в 2016. До переезда в Санкт-Петербруг.',
+              link: 'https://vk.com/wall-159364181_3',
+              cover: 'https://pp.userapi.com/c845323/v845323561/11bc52/izxtDQp80KQ.jpg'
             },
             {
-              svgPath: '/static/images/social-network/telegram.svg',
-              link: 'https://t.me/deviun',
-            },
-            {
-              svgPath: '/static/images/social-network/instagram.svg',
-              link: 'https://instagram.com/adeviun',
-            },
-            {
-              svgPath: '/static/images/social-network/unsplash.svg',
-              link: 'https://unsplash.com/@deviun',
-            },
-            {
-              svgPath: '/static/images/social-network/youtube.svg',
-              link: 'https://www.youtube.com/channel/UCj1rgpTFk16H6nsktitCplQ',
+              title: 'DEVIUN 2018',
+              link: 'https://tgraph.io/DEVIUN-2018-12-07',
+              cover: 'https://pp.userapi.com/c852036/v852036631/63ecd/BlP3eNr1xGA.jpg'
             },
           ]}
         />
-      </Padding>
-      <MainTitle>Notes</MainTitle>
-      <Notes
-        items={[
-          {
-            title: 'История: Начало',
-            link: 'https://vk.com/wall-159364181_1',
-            cover: 'https://pp.userapi.com/c845421/v845421151/118b5e/F5fhmiW6pbY.jpg'
-          },
-          {
-            title: 'История: Часть ||',
-            link: 'https://vk.com/wall-159364181_2',
-            cover: 'https://pp.userapi.com/c840329/v840329126/742ff/hkwq83fYws4.jpg'
-          },
-          {
-            title: 'День рождения в 2016. До переезда в Санкт-Петербруг.',
-            link: 'https://vk.com/wall-159364181_3',
-            cover: 'https://pp.userapi.com/c845323/v845323561/11bc52/izxtDQp80KQ.jpg'
-          },
-          {
-            title: 'DEVIUN 2018',
-            link: 'https://tgraph.io/DEVIUN-2018-12-07',
-            cover: 'https://pp.userapi.com/c852036/v852036631/63ecd/BlP3eNr1xGA.jpg'
-          },
-        ]}
-      />
-     <Padding top="50px" bottom="20px">
-        <EndSmile svgPath="/static/images/smiles/kiss.svg" />
-     </Padding>
-    </PageWidthWrapper>
-  );
+        <Padding top="50px" bottom="20px">
+          <EndSmile svgPath="/static/images/smiles/kiss.svg" />
+        </Padding>
+      </PageWidthWrapper>
+    );
+  }
 }
+
+const mapStateToProps = ({
+  mainPageInfo = {},
+} = {}) => ({
+  mainPageInfo,
+});
+
+const mapDispatchToProps = (dispatch: Function) => ({
+  loadMainPageInfo: () => loadMainPageInfoAction(dispatch),
+});
+
+// @ts-ignore
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

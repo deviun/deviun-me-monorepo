@@ -20,6 +20,7 @@
     "@types/winston": "2.4.4",
     "body-parser": "1.18.3",
     "celebrate": "9.1.0",
+    "cors": "2.8.5",
     "datadog-logger": "1.0.2",
     "dotenv": "6.2.0",
     "express": "4.16.4",

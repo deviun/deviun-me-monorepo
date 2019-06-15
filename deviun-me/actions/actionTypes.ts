@@ -1,0 +1,1 @@
+export const SET_MAIN_PAGE_INFO = 'SET_MAIN_PAGE_INFO';
