@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Head from './components/common/Head';
@@ -23,7 +23,7 @@ const AvatarStyled = styled.img`
 
 export default function MusicPage() {
   return (
-    <Fragment>
+    <>
       <Head
         title="Developer"
       />
@@ -135,6 +135,6 @@ export default function MusicPage() {
           />
         </Padding>
       </PageWidthWrapper>
-    </Fragment>
+    </>
   );
 }

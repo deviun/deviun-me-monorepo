@@ -8,6 +8,8 @@ export const initialState: PageInfoT = {
   defaultColor: 'black',
   height: '850px',
   coverText: '',
+  description: '',
+  socialNetworks: [],
 };
 
 export default function mainPageInfo(

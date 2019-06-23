@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface labelItem {
@@ -34,7 +34,7 @@ const AgeLabelStyled = styled.span`
 
 export default function ProfileInfo(props: ProfileInfoPropsT) {
   return (
-    <Fragment>
+    <>
       <MainInfoStyled><b>{props.name}, {props.age},</b> {props.position}</MainInfoStyled>
       <LabelListStyled>
         {
@@ -46,6 +46,6 @@ export default function ProfileInfo(props: ProfileInfoPropsT) {
           ))
         }
       </LabelListStyled>
-    </Fragment>
+    </>
   );
 }

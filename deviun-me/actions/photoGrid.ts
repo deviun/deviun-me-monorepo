@@ -16,6 +16,8 @@ export interface loadPhotoGripT {
   payload: PhotoGridT;
 }
 
+// actions
+
 export const loadPhotoGrip = async (dispatch: Function) => {
   const { ok, result }: any = await API.getPhotoGrid();
 

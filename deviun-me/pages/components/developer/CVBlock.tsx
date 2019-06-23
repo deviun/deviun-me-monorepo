@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface CVItemT {
@@ -29,7 +29,7 @@ const EpisodeStyled = styled.div`
 
 export default function CVBlock(props: CVBlockPropsT) {
   return (
-    <Fragment>
+    <>
       <EpisodeStyled>
         {
           props.data.map((episode) => (
@@ -46,6 +46,6 @@ export default function CVBlock(props: CVBlockPropsT) {
           ))
         }
       </EpisodeStyled>
-    </Fragment>
+    </>
   ); 
 }

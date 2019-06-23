@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import skillLevels from '../../constants/skill-levels';
@@ -63,7 +63,7 @@ const SkillWrapperStyled = styled.div`
 
 export default function SkillsList(props: SkillsListPropsT) {
   return (
-    <Fragment>
+    <>
       {
         props.data.map((skill) => (
           <SkillWrapperStyled>
@@ -72,6 +72,6 @@ export default function SkillsList(props: SkillsListPropsT) {
           </SkillWrapperStyled>
         ))
       }
-    </Fragment>
+    </>
   );
 }

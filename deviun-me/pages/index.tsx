@@ -43,6 +43,8 @@ class MainPage extends Component<propsT> {
         defaultColor,
         height,
         coverText,
+        description,
+        socialNetworks,
       },
       photoGrid: {
         grid,
@@ -66,50 +68,22 @@ class MainPage extends Component<propsT> {
         </Cover>
         <MainTitle>I am a superhero</MainTitle>
         <PhotoGrid grid={grid} />
-        <MainTitle>About</MainTitle>
-        <Description>
-          {` Основная моя деятельность — разработка веб-сервисов. Увлекся этим еще в 13 лет, в 17 переехал в Санкт-Петербург и с тех пор уже успел поработать в нескольких компаниях. **Узнать** больше…
-        
-          Помимо задротства одно время писал музыку, сейчас это происходит очень редко, послушать мои старания можно на soundcloud. А сейчас я активно коллекционирую музыку в iTunes. Открыть коллекции…
-
-          Конечно, еще нельзя незаметить мой интерес к фотографиям. Здесь ничего серьезного, всего лишь одержимость образами людей.
-
-          Если захотеть, со мной можно встретиться и пообщаться, всем нравится, и тебе советую. Часто люди получают новый опыт общения со мной! Ниже можешь найти мои соц.сети, где можно что-то со мной сделать — лайкнуть, написать или просто посмотреть.`}
-        </Description>
+        {
+          description.length ? (
+            <>
+              <MainTitle>About</MainTitle>
+              <Description>
+                {description}
+              </Description>
+            </>
+          ) : null
+        }
         <Padding top="50px">
           <SocialNetworks
-            items={[
-              {
-                svgPath: '/static/images/social-network/vk.svg',
-                link: 'https://vk.com/deviun',
-              },
-              {
-                svgPath: '/static/images/social-network/soundcloud.svg',
-                link: 'https://soundcloud.com/anton-deviun',
-              },
-              {
-                svgPath: '/static/images/social-network/github.svg',
-                link: 'https://github.com/deviun',
-              },
-              {
-                svgPath: '/static/images/social-network/telegram.svg',
-                link: 'https://t.me/deviun',
-              },
-              {
-                svgPath: '/static/images/social-network/instagram.svg',
-                link: 'https://instagram.com/adeviun',
-              },
-              {
-                svgPath: '/static/images/social-network/unsplash.svg',
-                link: 'https://unsplash.com/@deviun',
-              },
-              {
-                svgPath: '/static/images/social-network/youtube.svg',
-                link: 'https://www.youtube.com/channel/UCj1rgpTFk16H6nsktitCplQ',
-              },
-            ]}
+            items={socialNetworks}
           />
         </Padding>
+  
         <MainTitle>Notes</MainTitle>
         <Notes
           items={[

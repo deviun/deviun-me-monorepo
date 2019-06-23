@@ -3,6 +3,8 @@ import {
   SET_MAIN_PAGE_INFO,
 } from './actionTypes';
 
+import { SocialNetworkItemT } from '../pages/components/main/SocialNetworks';
+
 // payload types
 
 export interface PageInfoT {
@@ -10,6 +12,8 @@ export interface PageInfoT {
   defaultColor: string;
   height: string;
   coverText: string;
+  description: string;
+  socialNetworks: SocialNetworkItemT[];
 }
 
 // action types
@@ -18,6 +22,8 @@ export interface loadPageInfoT {
   type: typeof SET_MAIN_PAGE_INFO;
   payload: PageInfoT;
 }
+
+// actions
 
 export const loadPageInfo = async (dispatch: Function) => {
   const { ok, result }: any = await API.getMainPageInfo();

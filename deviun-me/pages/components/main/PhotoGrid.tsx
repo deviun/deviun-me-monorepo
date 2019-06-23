@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Cover from '../common/Cover';
@@ -16,7 +16,7 @@ export default function PhotoGrid({
   grid,
 }: PhotoGridPropsT) {
   return (
-    <Fragment>
+    <>
       {
         grid.map((row: string[]) => (
           <GridRowStyled>
@@ -32,6 +32,6 @@ export default function PhotoGrid({
           </GridRowStyled>
         ))
       }
-    </Fragment>
+    </>
   );
 }

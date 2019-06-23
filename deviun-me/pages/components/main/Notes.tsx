@@ -45,10 +45,11 @@ const NoteTitle = styled.div`
 export default function Notes({
   items,
 }: NotesPropsT) {
+  const reversedNotes = [...items].reverse();
   return (
     <NotesStyled>
       {
-        items.map((item) => (
+        reversedNotes.map((item) => (
           <a href={item.link} target="_blank">
             <NoteItem>
               <NoteCover cover={item.cover} />

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface SocialNetworkItemT {
+export interface SocialNetworkItemT {
   svgPath: string;
   link: string;
   target?: string;
 }
 
-interface SocialNetworksPropsT {
+export interface SocialNetworksPropsT {
   items: SocialNetworkItemT[];
 }
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Head from './components/common/Head';
 import Cover from './components/common/Cover';
@@ -8,7 +8,7 @@ import Playlists from './components/music/Playlists';
 
 export default function MusicPage () {
   return (
-    <Fragment>
+    <>
       <Head
         title="Music"
       />
@@ -163,6 +163,6 @@ export default function MusicPage () {
           ]}
         />
       </Background>
-    </Fragment>
+    </>
   );
 }
