@@ -29,4 +29,8 @@ export default class API {
   static async getPhotoGrid() {
     return this.request('/object/photoGrip');
   }
+  
+  static async getNotes() {
+    return this.request('/list/notes');
+  }
 }

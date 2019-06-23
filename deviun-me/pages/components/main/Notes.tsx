@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface NoteItemT {
+export interface NoteItemT {
   cover: string;
   title: string;
   link: string;

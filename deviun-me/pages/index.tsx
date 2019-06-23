@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadPageInfo, PageInfoT } from '../actions/mainPageInfo';
 import { loadPhotoGrip, PhotoGridT } from '../actions/photoGrid';
+import { loadNotes, NotesT } from '../actions/notes';
 
 import Padding from './components/common/Padding';
 
@@ -14,13 +15,14 @@ import MainTitle from './components/common/MainTitle';
 import Description from './components/main/Description';
 import PageWidthWrapper from './components/common/PageWidthWrapper';
 import SocialNetworks from './components/main/SocialNetworks';
-import Notes from './components/main/Notes';
+import Notes, { NoteItemT } from './components/main/Notes';
 import EndSmile from './components/main/EndSmile';
 
 interface propsT {
   mainPageInfo: PageInfoT;
   loadMainPageInfo: Function;
   photoGrid: PhotoGridT;
+  notes: NoteItemT[];
 }
 
 class MainPage extends Component<propsT> {
@@ -32,6 +34,7 @@ class MainPage extends Component<propsT> {
     await Promise.all([
       loadPageInfo(reduxStore.dispatch),
       loadPhotoGrip(reduxStore.dispatch),
+      loadNotes(reduxStore.dispatch),
     ]);
     return {};
   }
@@ -49,6 +52,7 @@ class MainPage extends Component<propsT> {
       photoGrid: {
         grid,
       },
+      notes,
     } = this.props;
 
     return (
@@ -83,32 +87,18 @@ class MainPage extends Component<propsT> {
             items={socialNetworks}
           />
         </Padding>
-  
-        <MainTitle>Notes</MainTitle>
-        <Notes
-          items={[
-            {
-              title: 'История: Начало',
-              link: 'https://vk.com/wall-159364181_1',
-              cover: 'https://pp.userapi.com/c845421/v845421151/118b5e/F5fhmiW6pbY.jpg'
-            },
-            {
-              title: 'История: Часть ||',
-              link: 'https://vk.com/wall-159364181_2',
-              cover: 'https://pp.userapi.com/c840329/v840329126/742ff/hkwq83fYws4.jpg'
-            },
-            {
-              title: 'День рождения в 2016. До переезда в Санкт-Петербруг.',
-              link: 'https://vk.com/wall-159364181_3',
-              cover: 'https://pp.userapi.com/c845323/v845323561/11bc52/izxtDQp80KQ.jpg'
-            },
-            {
-              title: 'DEVIUN 2018',
-              link: 'https://tgraph.io/DEVIUN-2018-12-07',
-              cover: 'https://pp.userapi.com/c852036/v852036631/63ecd/BlP3eNr1xGA.jpg'
-            },
-          ]}
-        />
+        
+        {
+          notes.length ? (
+            <>
+              <MainTitle>Notes</MainTitle>
+              <Notes
+                items={notes}
+              />
+            </>
+          ) : null
+        }
+        
         <Padding top="50px" bottom="20px">
           <EndSmile svgPath="/static/images/smiles/kiss.svg" />
         </Padding>
@@ -119,10 +109,12 @@ class MainPage extends Component<propsT> {
 
 const mapStateToProps = ({
   mainPageInfo = {},
-  photoGrid = { grid: [] },
+  photoGrid = {},
+  notes = { notes: [] },
 } = {}) => ({
   mainPageInfo,
   photoGrid,
+  notes: notes.notes,
 });
 
 // @ts-ignore
