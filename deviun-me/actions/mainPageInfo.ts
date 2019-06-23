@@ -1,4 +1,9 @@
-import { SET_MAIN_PAGE_INFO } from './actionTypes';
+import API from '../helpers/api-helper';
+import {
+  SET_MAIN_PAGE_INFO,
+} from './actionTypes';
+
+// payload types
 
 export interface PageInfoT {
   coverImage: string;
@@ -7,21 +12,22 @@ export interface PageInfoT {
   coverText: string;
 }
 
-export interface setMainPageInfoT {
+// action types
+
+export interface loadPageInfoT {
   type: typeof SET_MAIN_PAGE_INFO;
   payload: PageInfoT;
 }
 
-export const loadMainPageInfo = async (dispatch: Function) => {
-  const res = await fetch('http://api.deviun-brand.mac/object/mainPageInfo/');
-  const { ok, result }: any = await res.json();
-  
+export const loadPageInfo = async (dispatch: Function) => {
+  const { ok, result }: any = await API.getMainPageInfo();
+
   if (ok) {
     return dispatch({
       type: SET_MAIN_PAGE_INFO,
       payload: result.data,
     });
   }
-  
-  console.error('loadMainPageInfo bad request', ok, result);
+
+  console.error({ ok, result });
 };

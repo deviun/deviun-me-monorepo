@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { loadMainPageInfo as loadMainPageInfoAction, PageInfoT } from '../actions/mainPageInfo';
+import { loadPageInfo, PageInfoT } from '../actions/mainPageInfo';
+import { loadPhotoGrip, PhotoGridT } from '../actions/photoGrid';
 
 import Padding from './components/common/Padding';
 
@@ -19,6 +20,7 @@ import EndSmile from './components/main/EndSmile';
 interface propsT {
   mainPageInfo: PageInfoT;
   loadMainPageInfo: Function;
+  photoGrid: PhotoGridT;
 }
 
 class MainPage extends Component<propsT> {
@@ -26,8 +28,12 @@ class MainPage extends Component<propsT> {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.loadMainPageInfo();
+  static async getInitialProps({ reduxStore }: any) {
+    await Promise.all([
+      loadPageInfo(reduxStore.dispatch),
+      loadPhotoGrip(reduxStore.dispatch),
+    ]);
+    return {};
   }
 
   render() {
@@ -37,8 +43,12 @@ class MainPage extends Component<propsT> {
         defaultColor,
         height,
         coverText,
-      }
+      },
+      photoGrid: {
+        grid,
+      },
     } = this.props;
+
     return (
       <PageWidthWrapper
         maxWidth={1440}
@@ -55,13 +65,7 @@ class MainPage extends Component<propsT> {
           />
         </Cover>
         <MainTitle>I am a superhero</MainTitle>
-        <PhotoGrid grid={[
-          ['/static/images/DSC_0006-4.jpg'],
-          [
-            '/static/images/anton-danilov-666032-unsplash.jpg',
-            '/static/images/EbQx-8ZdOxg.jpg',
-          ],
-        ]} />
+        <PhotoGrid grid={grid} />
         <MainTitle>About</MainTitle>
         <Description>
           {` Основная моя деятельность — разработка веб-сервисов. Увлекся этим еще в 13 лет, в 17 переехал в Санкт-Петербург и с тех пор уже успел поработать в нескольких компаниях. **Узнать** больше…
@@ -141,13 +145,11 @@ class MainPage extends Component<propsT> {
 
 const mapStateToProps = ({
   mainPageInfo = {},
+  photoGrid = { grid: [] },
 } = {}) => ({
   mainPageInfo,
-});
-
-const mapDispatchToProps = (dispatch: Function) => ({
-  loadMainPageInfo: () => loadMainPageInfoAction(dispatch),
+  photoGrid,
 });
 
 // @ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps)(MainPage);

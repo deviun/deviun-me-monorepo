@@ -1,5 +1,7 @@
-import { PageInfoT, setMainPageInfoT } from '../actions/mainPageInfo';
-import { SET_MAIN_PAGE_INFO } from '../actions/actionTypes';
+import { PageInfoT, loadPageInfoT } from '../actions/mainPageInfo';
+import {
+  SET_MAIN_PAGE_INFO,
+} from '../actions/actionTypes';
 
 export const initialState: PageInfoT = {
   coverImage: '',
@@ -10,7 +12,7 @@ export const initialState: PageInfoT = {
 
 export default function mainPageInfo(
   state: PageInfoT = initialState,
-  action: setMainPageInfoT,
+  action: loadPageInfoT,
 ): PageInfoT {
   switch (action.type) {
     case SET_MAIN_PAGE_INFO: {
