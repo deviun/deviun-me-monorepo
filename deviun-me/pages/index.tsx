@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadPageInfo, PageInfoT } from '../actions/mainPageInfo';
 import { loadPhotoGrip, PhotoGridT } from '../actions/photoGrid';
-import { loadNotes, NotesT } from '../actions/notes';
+import { loadNotes } from '../actions/notes';
 
 import Padding from './components/common/Padding';
 

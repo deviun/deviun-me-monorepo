@@ -33,4 +33,8 @@ export default class API {
   static async getNotes() {
     return this.request('/list/notes');
   }
+
+  static async getPlaylists() {
+    return this.request('/list/playlists');
+  }
 }

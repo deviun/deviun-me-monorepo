@@ -7,7 +7,7 @@ export const initialState: NotesT = {
   notes: [],
 };
 
-export default function photoGrid(
+export default function notes(
   state: NotesT = initialState,
   action: loadNotesT,
 ): NotesT {

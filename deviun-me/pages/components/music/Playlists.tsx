@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { seasonTitles } from '../../constants/season-titles';
 
-interface PlaylistsItemT {
+export interface PlaylistsItemT {
   cover: string; // image url
   name: string;
   songs?: number;
