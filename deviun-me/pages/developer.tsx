@@ -20,7 +20,7 @@ import { loadSkillList, SkillListT } from '../actions/skillLists';
 interface mapStateT {
   developerProfile: DeveloperProfileT;
   CVHistory: CVHistoryT;
-  openSourceList: OpenSourceListT
+  openSourceList: OpenSourceListT;
   skillList: SkillListT;
 }
 
