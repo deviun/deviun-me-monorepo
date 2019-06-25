@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface CVItemT {
+export interface CVItemT {
   dateRange: string; // 2012 — 2015
   text: string[];
 }

@@ -37,4 +37,20 @@ export default class API {
   static async getPlaylists() {
     return this.request('/list/playlists');
   }
+
+  static async getDeveloperProfile() {
+    return this.request('/object/developerProfile');
+  }
+  
+  static async getCVHistory() {
+    return this.request('/object/CVHistory');
+  }
+
+  static async getOpenSourceList() {
+    return this.request('/object/openSourceList');
+  }
+  
+  static async getSkillList() {
+    return this.request('/object/skillList');
+  }
 }

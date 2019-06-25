@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 import skillLevels from '../../constants/skill-levels';
 
+export interface SkillItemT {
+  imagePath: string;
+  level: number;
+}
+
 interface SkillsListPropsT {
-  data: {
-    imagePath: string;
-    level: number;
-  }[];
+  data: SkillItemT[];
 }
 
 const SkillLevelStyled = styled.div`

@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+export interface OpenSourceItemI {
+  name: string;
+  description: string;
+  link: string;
+}
+
 interface OpenSourceListPropsT {
-  packages: {
-    name: string;
-    description: string;
-    link: string;
-  }[];
+  packages: OpenSourceItemI[];
 }
 
 const PackageStyled = styled.div`
