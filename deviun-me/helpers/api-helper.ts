@@ -1,6 +1,9 @@
 import fetchPolyfill from 'node-fetch';
+import getConfig from 'next/config';
 
-const API_SERVER = process.env.API_SERVER;
+const { publicRuntimeConfig } = getConfig();
+
+const API_SERVER = publicRuntimeConfig.API_SERVER;
 const fetch = typeof window !== 'undefined' ? window.fetch : fetchPolyfill;
 
 const getUrl = (path: string) => `${API_SERVER}${path}`;
