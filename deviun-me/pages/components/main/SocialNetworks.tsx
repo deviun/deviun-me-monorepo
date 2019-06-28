@@ -17,6 +17,12 @@ const SocialNetworkStyled = styled.div`
   img {
     margin: 0px 15px;
     width: 45px;
+    transition: 0.15s;
+
+    &:hover {
+      transform: scale(1.2, 1.2);
+      opacity: 0.8;
+    }
   }
 `;
 

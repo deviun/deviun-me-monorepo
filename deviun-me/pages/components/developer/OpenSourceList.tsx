@@ -14,7 +14,7 @@ interface OpenSourceListPropsT {
 const PackageStyled = styled.div`
   text-align: center;
   color: #686868;
-  max-width: 370px;
+  max-width: 250px;
   display: inline-block;
   margin: 20px;
   vertical-align: top;

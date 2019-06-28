@@ -17,6 +17,9 @@ interface PlaylistsPropsT {
 }
 
 const PlaylistsStyled = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+
   a {
     text-decoration: none;
   }
@@ -26,6 +29,7 @@ const PlaylistItemStyled = styled.div`
   display: inline-block;
   margin: 25px;
   cursor: pointer;
+  transition: 0.15s;
 
   .shadow-box {
     opacity: 0;
@@ -36,6 +40,8 @@ const PlaylistItemStyled = styled.div`
     .shadow-box {
       opacity: 1;
     }
+
+    transform: scale(1.08, 1.08);
   }
 `;
 
@@ -76,6 +82,8 @@ const YearTitleStyled = styled.h2`
   font-weight: bold;
   margin: 0px;
   padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 `;
 
 const SeasonTitleStyled = styled.h3`
@@ -83,6 +91,8 @@ const SeasonTitleStyled = styled.h3`
   font-weight: 100;
   margin: 0px;
   padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 `;
 
 interface seasonsGridT {

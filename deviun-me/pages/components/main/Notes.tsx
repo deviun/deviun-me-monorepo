@@ -15,14 +15,22 @@ const NotesStyled = styled.div`
   max-width: 1000px;
   margin: 0px auto;
   padding: 20px 0px;
+  text-align: center;
 `;
 
 const NoteItem = styled.div`
   display: inline-block;
-  margin: 10px 20px;
+  margin: 15px 20px;
   max-width: 300px;
   vertical-align: top;
   overflow: hidden;
+  text-align: left;
+  transition: 0.15s;
+
+  &:hover {
+    transform: scale(1.08, 1.08);
+    opacity: 0.9;
+  }
 `;
 
 const NoteCover = styled.div`
@@ -40,6 +48,7 @@ const NoteTitle = styled.div`
   margin-top: 20px;
   font-weight: 600;
   font-size: 15px;
+  max-width: 250px;
 `;
 
 export default function Notes({
