@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export interface SocialNetworkItemT {
   svgPath: string;
@@ -18,6 +19,7 @@ const SocialNetworkStyled = styled.div`
     margin: 0px 15px;
     width: 45px;
     transition: 0.15s;
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.2, 1.2);
@@ -26,6 +28,8 @@ const SocialNetworkStyled = styled.div`
   }
 `;
 
+const isInternalLink = (link: string) => link.match(/\/([a-z]+)/);
+
 export default function SocialNetworks({
   items = [],
 }: SocialNetworksPropsT) {
@@ -33,12 +37,26 @@ export default function SocialNetworks({
     <SocialNetworkStyled>
       {
         items.map((item) => (
-          <a
-            href={item.link}
-            target={item.target || '_blank'}
-          >
-            <img src={item.svgPath} />
-          </a>
+          isInternalLink
+            ? (
+              <>
+                <Link
+                  href={item.link}
+                >
+                  <img src={item.svgPath} />
+                </Link>
+              </>
+            )
+            : (
+              <>
+                <a
+                  href={item.link}
+                  target={item.target || '_blank'}
+                >
+                  <img src={item.svgPath} />
+                </a>
+              </>  
+            )
         ))
       }
     </SocialNetworkStyled>
