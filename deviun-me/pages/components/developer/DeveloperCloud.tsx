@@ -27,7 +27,7 @@ export default function DeveloperCloud() {
   return (
     <CloudStyled>
       <picture>
-        <source srcset="/static/images/developer-cloud-full-shape.svg"
+        <source srcSet="/static/images/developer-cloud-full-shape.svg"
           media={`(${bigScreenMediaProp})`}
         />
         <img src="/static/images/developer-cloud-croped-shape.svg" />
