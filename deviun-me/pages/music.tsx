@@ -8,6 +8,7 @@ import Cover from './components/common/Cover';
 import HeaderCoverContent from './components/music/HeaderCoverContent';
 import Background from './components/common/Background';
 import Playlists from './components/music/Playlists';
+import Padding from './components/common/Padding';
 
 interface PropsT {
   playlists: PlaylistsT;
@@ -37,9 +38,14 @@ class MusicPage extends Component<PropsT> {
         <Background
           gradient="linear-gradient(136deg, #171514 0%, #153745 100%)"
         >
-          <Playlists
-            list={playlists}
-          />
+          <Padding
+            top="50px"
+            bottom="50px"
+          >
+            <Playlists
+              list={playlists}
+            />
+          </Padding>
         </Background>
       </>
     );
