@@ -45,6 +45,7 @@ class MainPage extends Component<propsT> {
         coverImage,
         defaultColor,
         height,
+        mobileHeight,
         coverText,
         description,
         socialNetworks,
@@ -64,6 +65,7 @@ class MainPage extends Component<propsT> {
           image={coverImage}
           color={defaultColor}
           height={height}
+          mobileHeight={mobileHeight}
           key="main"
         >
           <HeaderCoverContent

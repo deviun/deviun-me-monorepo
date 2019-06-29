@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { mobileMediaProp } from '../../constants/style';
+
 const TitleStyled = styled.div`
   text-align: center;
   margin-top: 180px;
@@ -13,6 +15,10 @@ const TitleStyled = styled.div`
     color: white;
     opacity: 0.3;
     font-weight: 100;
+  }
+
+  @media(${mobileMediaProp}) {
+    margin-top: 100px;
   }
 `;
 

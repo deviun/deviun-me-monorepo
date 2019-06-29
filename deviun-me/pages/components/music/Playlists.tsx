@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+
 import { seasonTitles } from '../../constants/season-titles';
+import { mobileMediaProp } from '../../constants/style';
 
 export interface PlaylistsItemT {
   cover: string; // image url
@@ -23,6 +25,10 @@ const PlaylistsStyled = styled.div`
   a {
     text-decoration: none;
   }
+
+  @media(${mobileMediaProp}) {
+    text-align: center;
+  }
 `;  
 
 const PlaylistItemStyled = styled.div`
@@ -30,6 +36,7 @@ const PlaylistItemStyled = styled.div`
   margin: 25px;
   cursor: pointer;
   transition: 0.15s;
+  vertical-align: top;
 
   .shadow-box {
     opacity: 0;
@@ -69,12 +76,28 @@ const PlaylistCoverShadowStyled = styled.div`
   .play-button {
     margin-top: 65px;
   }
+
+  @media(${mobileMediaProp}) {
+    width: 100px;
+    height: 100px;
+
+    .play-button {
+      margin-top: 25px;
+      height: 50px; 
+    }
+  }
 `;
 
 const PlaylistTitleStyled = styled.div`
   color: white;
   text-align: center;
   padding: 10px;
+  max-width: 180px;
+  word-break: break-all;
+
+  @media(${mobileMediaProp}) {
+    max-width: 80px;
+  }
 `;
 
 const YearTitleStyled = styled.h2`

@@ -31,6 +31,7 @@ class MusicPage extends Component<PropsT> {
           image="/static/images/music-cover.jpg"
           color="black"
           height="650px"
+          mobileHeight="450px"
           key="main"
         >
           <HeaderCoverContent />

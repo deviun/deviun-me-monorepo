@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
+import {
+ mobileMediaProp,
+} from '../../constants/style';
+
 export interface SocialNetworkItemT {
   svgPath: string;
   link: string;
   target?: string;
+  internal?: boolean;
 }
 
 export interface SocialNetworksPropsT {
@@ -25,10 +30,12 @@ const SocialNetworkStyled = styled.div`
       transform: scale(1.2, 1.2);
       opacity: 0.8;
     }
+
+    @media(${mobileMediaProp}) {
+      padding: 20px;
+    }
   }
 `;
-
-const isInternalLink = (link: string) => link.match(/\/([a-z]+)/);
 
 export default function SocialNetworks({
   items = [],
@@ -37,25 +44,21 @@ export default function SocialNetworks({
     <SocialNetworkStyled>
       {
         items.map((item) => (
-          isInternalLink
+          item.internal
             ? (
-              <>
-                <Link
-                  href={item.link}
-                >
-                  <img src={item.svgPath} />
-                </Link>
-              </>
+              <Link
+                href={item.link}
+              >
+                <img src={item.svgPath} />
+              </Link>
             )
             : (
-              <>
-                <a
-                  href={item.link}
-                  target={item.target || '_blank'}
-                >
-                  <img src={item.svgPath} />
-                </a>
-              </>  
+              <a
+                href={item.link}
+                target={item.target || '_blank'}
+              >
+                <img src={item.svgPath} />
+              </a>
             )
         ))
       }

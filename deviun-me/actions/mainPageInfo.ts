@@ -11,6 +11,7 @@ export interface PageInfoT {
   coverImage: string;
   defaultColor: string;
   height: string;
+  mobileHeight: string;
   coverText: string;
   description: string;
   socialNetworks: SocialNetworkItemT[];

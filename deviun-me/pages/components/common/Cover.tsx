@@ -1,6 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
+import {
+  mobileMediaProp,
+} from '../../constants/style';
+
 interface CoverStyledPropsT {
   height?: string;
   padding?: string;
@@ -8,6 +12,7 @@ interface CoverStyledPropsT {
   image?: string;
   clipPath?: string;
   overflow?: string;
+  mobileHeight?: string;
 }
 
 const defaultPadding = '0px';
@@ -21,11 +26,17 @@ const CoverStyled = styled.div`
     background-image: url(${props.image});
     clip-path: ${props.clipPath || 'none'};
     overflow: ${props.overflow || 'hidden'};
+
+    @media(${mobileMediaProp}) {
+      height: ${props.mobileHeight};
+    }
   `}
   width: 100%;
   margin: 0px;
   background-size: cover;
   background-position: center;
+  position: relative;
+  transition: 0.15s;
 `;
 
 interface CoverPropsT extends CoverStyledPropsT {
