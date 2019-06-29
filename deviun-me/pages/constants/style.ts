@@ -1,1 +1,2 @@
-export const mobileMediaProp = 'max-width: 700px';
+export const mobileMediaProp = 'max-width: 900px';
+export const bigScreenMediaProp = 'min-width: 1800px';

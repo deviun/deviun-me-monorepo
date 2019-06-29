@@ -11,6 +11,7 @@ import MainTitle from './components/common/MainTitle';
 import CVBlock from './components/developer/CVBlock';
 import OpenSourceList from './components/developer/OpenSourceList';
 import SkillsList from './components/developer/SkillsList';
+import DeveloperCloud from './components/developer/DeveloperCloud';
 
 import { loadDeveloperProfile, DeveloperProfileT } from '../actions/developerProfile';
 import { loadCVHistory, CVHistoryT } from '../actions/CVHistory';
@@ -65,8 +66,9 @@ class MusicPage extends Component<MusicPagePropsT> {
           title="Developer"
         />
         <Cover
-          image="/static/images/annie-spratt-439326-unsplash.jpg"
-          height="525px"
+          image="/static/images/developer-cover.jpg"
+          height="425px"
+          mobileHeight="250px"
         />
         <PageWidthWrapper
           maxWidth={1100}
@@ -78,6 +80,7 @@ class MusicPage extends Component<MusicPagePropsT> {
             <AvatarStyled
               src={developerProfile.avatarUrl}
             />
+            <DeveloperCloud />
             <ProfileInfo
               name={developerProfile.name}
               age={developerProfile.age}

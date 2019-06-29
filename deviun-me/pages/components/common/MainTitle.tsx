@@ -13,7 +13,7 @@ export default function MainTitle({
   return (
     <Padding
       top="50px"
-      bottom="50px"
+      bottom="30px"
     >
       <TitleCenter>
         {children}
