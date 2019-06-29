@@ -15,8 +15,9 @@ interface SkillsListPropsT {
 const SkillLevelStyled = styled.div`
   ${(props: {
     color: string;
+    opacity?: string;
   }) => `
-    margin: 50px 0;
+    margin: 20px 0;
     position: relative;
     display: inline-block;
     color: #${props.color};
@@ -27,7 +28,7 @@ const SkillLevelStyled = styled.div`
     border-left: 100px solid transparent;
     transform: rotate(35deg) scale(0.15, 0.15);
     transition: 0.1s;
-    opacity: 0.3;
+    opacity: ${props.opacity || '0.3'};
 
     &:before {
       border-bottom: 80px solid #${props.color};
