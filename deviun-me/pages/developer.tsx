@@ -76,6 +76,7 @@ class MusicPage extends Component<MusicPagePropsT> {
           <Padding
             left="50px"
             right="50px"
+            bottom="50px"
           >
             <AvatarStyled
               src={developerProfile.avatarUrl}
