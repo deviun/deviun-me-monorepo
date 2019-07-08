@@ -30,7 +30,7 @@ export default class API {
   }
 
   static async getPhotoGrid() {
-    return this.request('/object/photoGrip');
+    return this.request('/object/photoGrid');
   }
   
   static async getNotes() {
