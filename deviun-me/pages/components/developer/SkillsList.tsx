@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import skillLevels from '../../constants/skill-levels';
+import { mobileMediaProp } from '../../constants/style';
 
 export interface SkillItemT {
   imagePath: string;
@@ -94,6 +95,12 @@ const SkillItem = styled.div`
     .skill-level {
       transform: rotate(35deg) scale(0.3, 0.3);
       opacity:1;
+    }
+  }
+
+  @media(${mobileMediaProp}) {
+    img {
+      max-width: 230px;
     }
   }
 `;
