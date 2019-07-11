@@ -27,11 +27,11 @@ $ npm run build
 Developer mode:
 
 ```bash
-npm run dev
+$ npm run dev
 ```
 
 Production mode:
 
 ```bash
-npm start
+$ npm start
 ```
