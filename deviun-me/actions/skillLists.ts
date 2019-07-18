@@ -3,7 +3,7 @@ import {
   SET_SKILL_LIST
 } from './actionTypes';
 
-import { SkillItemT } from '../pages/components/developer/SkillsList';
+import { SkillItemT } from '../components/developer/SkillsList';
 
 // payload types
 

@@ -3,7 +3,7 @@ import {
   SET_CV_HISTORY,
 } from './actionTypes';
 
-import { CVItemT } from '../pages/components/developer/CVBlock';
+import { CVItemT } from '../components/developer/CVBlock';
 
 // payload types
 

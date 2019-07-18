@@ -3,7 +3,7 @@ import {
   SET_MAIN_PAGE_INFO,
 } from './actionTypes';
 
-import { SocialNetworkItemT } from '../pages/components/main/SocialNetworks';
+import { SocialNetworkItemT } from '../components/main/SocialNetworks';
 
 // payload types
 

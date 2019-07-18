@@ -1,4 +1,4 @@
-export  const seasonTitles: {
+export const seasonTitles: {
   [property: number]: string;
 } = {
   1: 'Winter (start of year)',
@@ -14,3 +14,5 @@ export  const seasonTitles: {
   11: 'Autumn',
   12: 'Winter (end of year)',
 };
+
+export default null;

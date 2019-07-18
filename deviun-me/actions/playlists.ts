@@ -3,7 +3,7 @@ import {
   SET_PLAYLISTS,
 } from './actionTypes';
 
-import { PlaylistsItemT } from '../pages/components/music/Playlists';
+import { PlaylistsItemT } from '../components/music/Playlists';
 
 // payload types
 

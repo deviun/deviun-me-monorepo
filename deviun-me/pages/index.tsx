@@ -5,18 +5,18 @@ import { loadPageInfo, PageInfoT } from '../actions/mainPageInfo';
 import { loadPhotoGrip, PhotoGridT } from '../actions/photoGrid';
 import { loadNotes } from '../actions/notes';
 
-import Padding from './components/common/Padding';
+import Padding from '../components/common/Padding';
 
-import Cover from './components/common/Cover';
-import Head from './components/common/Head';
-import HeaderCoverContent from './components/main/HeaderCoverContent';
-import PhotoGrid from './components/main/PhotoGrid';
-import MainTitle from './components/common/MainTitle';
-import Description from './components/main/Description';
-import PageWidthWrapper from './components/common/PageWidthWrapper';
-import SocialNetworks from './components/main/SocialNetworks';
-import Notes, { NoteItemT } from './components/main/Notes';
-import EndSmile from './components/main/EndSmile';
+import Cover from '../components/common/Cover';
+import Head from '../components/common/Head';
+import HeaderCoverContent from '../components/main/HeaderCoverContent';
+import PhotoGrid from '../components/main/PhotoGrid';
+import MainTitle from '../components/common/MainTitle';
+import Description from '../components/main/Description';
+import PageWidthWrapper from '../components/common/PageWidthWrapper';
+import SocialNetworks from '../components/main/SocialNetworks';
+import Notes, { NoteItemT } from '../components/main/Notes';
+import EndSmile from '../components/main/EndSmile';
 
 interface propsT {
   mainPageInfo: PageInfoT;

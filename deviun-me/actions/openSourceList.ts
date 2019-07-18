@@ -3,7 +3,7 @@ import {
   SET_OPENSOURCE_LIST
 } from './actionTypes';
 
-import { OpenSourceItemI } from '../pages/components/developer/OpenSourceList';
+import { OpenSourceItemI } from '../components/developer/OpenSourceList';
 
 // payload types
 

@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Head from './components/common/Head';
-import Cover from './components/common/Cover';
-import PageWidthWrapper from './components/common/PageWidthWrapper';
-import ProfileInfo from './components/developer/ProfileInfo';
-import Padding from './components/common/Padding';
-import MainTitle from './components/common/MainTitle';
-import CVBlock from './components/developer/CVBlock';
-import OpenSourceList from './components/developer/OpenSourceList';
-import SkillsList from './components/developer/SkillsList';
-import DeveloperCloud from './components/developer/DeveloperCloud';
+import Head from '../components/common/Head';
+import Cover from '../components/common/Cover';
+import PageWidthWrapper from '../components/common/PageWidthWrapper';
+import ProfileInfo from '../components/developer/ProfileInfo';
+import Padding from '../components/common/Padding';
+import MainTitle from '../components/common/MainTitle';
+import CVBlock from '../components/developer/CVBlock';
+import OpenSourceList from '../components/developer/OpenSourceList';
+import SkillsList from '../components/developer/SkillsList';
+import DeveloperCloud from '../components/developer/DeveloperCloud';
 
 import { loadDeveloperProfile, DeveloperProfileT } from '../actions/developerProfile';
 import { loadCVHistory, CVHistoryT } from '../actions/CVHistory';

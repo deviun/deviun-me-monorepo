@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import { loadPlaylists, PlaylistsT } from '../actions/playlists';
 
-import Head from './components/common/Head';
-import Cover from './components/common/Cover';
-import HeaderCoverContent from './components/music/HeaderCoverContent';
-import Background from './components/common/Background';
-import Playlists from './components/music/Playlists';
-import Padding from './components/common/Padding';
+import Head from '../components/common/Head';
+import Cover from '../components/common/Cover';
+import HeaderCoverContent from '../components/music/HeaderCoverContent';
+import Background from '../components/common/Background';
+import Playlists from '../components/music/Playlists';
+import Padding from '../components/common/Padding';
 
 interface PropsT {
   playlists: PlaylistsT;

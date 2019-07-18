@@ -3,7 +3,7 @@ import {
   SET_NOTES,
 } from './actionTypes';
 
-import { NoteItemT } from '../pages/components/main/Notes';
+import { NoteItemT } from '../components/main/Notes';
 
 // payload types
 
