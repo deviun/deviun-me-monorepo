@@ -7,6 +7,7 @@ export const initialState: PageInfoT = {
   coverImage: '',
   defaultColor: 'black',
   height: '850px',
+  mobileHeight: '400px',
   coverText: '',
   description: '',
   socialNetworks: [],

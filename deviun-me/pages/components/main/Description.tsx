@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as Markdown from 'react-markdown';
+import Markdown from 'react-markdown';
 
 interface DescriptionPropsT {
   children: string;
