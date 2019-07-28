@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
+import YMEvent from '../common/YMEvent';
+
 import { seasonTitles } from '../../constants/season-titles';
 import { mobileMediaProp } from '../../constants/style';
 
@@ -159,7 +161,7 @@ export default function Playlists({
 
     seasonsGrid[seasonIndex].playlists.push((
       <PlaylistItemStyled>
-        <a href={link} target="_blank">
+        <a href={link} onClick={() => YMEvent('openPlaylist')} target="_blank">
           <PlaylistCoverStyled image={cover}>
             <PlaylistCoverShadowStyled className="shadow-box">
               <img src="/static/images/play-button.svg" className="play-button" />

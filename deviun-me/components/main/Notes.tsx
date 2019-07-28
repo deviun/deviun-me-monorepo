@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import YMEvent from '../common/YMEvent';
+
 export interface NoteItemT {
   cover: string;
   title: string;
@@ -59,7 +61,7 @@ export default function Notes({
     <NotesStyled>
       {
         reversedNotes.map((item) => (
-          <a href={item.link} target="_blank">
+          <a href={item.link} onClick={() => YMEvent('openRecentNote')} target="_blank">
             <NoteItem>
               <NoteCover cover={item.cover} />
               <NoteTitle>{item.title}</NoteTitle>

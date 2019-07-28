@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
+import YMEvent from '../common/YMEvent';
+
 import {
  mobileMediaProp,
 } from '../../constants/style';
@@ -103,6 +105,7 @@ export default function SocialNetworks({
                 : (
                   <a
                     href={item.link}
+                    onClick={() => YMEvent('goToSocialLink')}
                     target={item.target || '_blank'}
                   >
                     <img src={item.svgPath} />
