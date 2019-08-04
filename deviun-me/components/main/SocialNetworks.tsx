@@ -23,13 +23,12 @@ export interface SocialNetworksPropsT {
 const SocialNetworkStyled = styled.div`
   text-align: center;
 
-  img {
+  .link-image {
     margin: 0px 15px;
     width: 45px;
     transition: 0.15s;
-    cursor: pointer;
 
-    &:hover {
+    &.external-link-img:hover {
       transform: scale(1.2, 1.2);
       opacity: 0.8;
     }
@@ -67,13 +66,48 @@ const ActiveTitleStyled = styled.div`
 
 const LinkWrapper = styled.div`
   display: inline-block;
+  cursor: pointer;
+  transition: 0.10s;
+
+  .link-image, .link-title {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &.internal-link {
+    margin: 0px 10px;
+  }
+
+  &.internal-link:hover {
+    transform: scale(0.95, 0.95);
+    opacity: 0.7;
+  }
+
+  @media(${mobileMediaProp}) {
+    &.internal-link {
+      margin: 0px;
+
+      .link-title {
+        width: 120px;
+        text-align: left;
+      }
+    }
+  }
 `;
+
+const InternalLinksBox = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+`;
+
+const LinkTitle = styled.span``;
 
 export default function SocialNetworks({
   items = [],
 }: SocialNetworksPropsT) {
   const [activeTitle, setActiveTitle] = useState('');
   const [showTitle, setShowTitle] = useState(false);
+  const internalLinks = [];
 
   return (
     <SocialNetworkStyled>
@@ -85,36 +119,46 @@ export default function SocialNetworks({
         </span>
       </ActiveTitleStyled>
       {
-        items.map((item) => (
-          <LinkWrapper
-            onMouseOver={() => {
-              setActiveTitle(item.title);
-              setShowTitle(true);
-            }}
-            onMouseOut={() => setShowTitle(false)}
-          >
-            {
-              item.internal
-                ? (
-                  <Link
-                    href={item.link}
-                  >
-                    <img src={item.svgPath} />
-                  </Link>
-                )
-                : (
-                  <a
-                    href={item.link}
-                    onClick={() => YMEvent('goToSocialLink')}
-                    target={item.target || '_blank'}
-                  >
-                    <img src={item.svgPath} />
-                  </a>
-                )
-            }
-          </LinkWrapper>
-        ))
+        items.map((item) => {
+          if (item.internal) {
+            internalLinks.push(
+              <LinkWrapper className="internal-link">
+                <Link
+                  href={item.link}
+                >
+                  <span>
+                    <img src={item.svgPath} className="link-image" />
+                    <LinkTitle className="link-title">{item.title}</LinkTitle>
+                  </span>
+                </Link>
+              </LinkWrapper>
+            );
+
+            return null;
+          }
+
+          return (
+            <LinkWrapper
+              onMouseOver={() => {
+                setActiveTitle(item.title);
+                setShowTitle(true);
+              }}
+              onMouseOut={() => setShowTitle(false)}
+            >
+              <a
+                href={item.link}
+                onClick={() => YMEvent('goToSocialLink')}
+                target={item.target || '_blank'}
+              >
+                <img src={item.svgPath} className="link-image external-link-img" />
+              </a>
+            </LinkWrapper>
+          );
+        })
       }
+      <InternalLinksBox>
+        {internalLinks}
+      </InternalLinksBox>
     </SocialNetworkStyled>
   );
 }
