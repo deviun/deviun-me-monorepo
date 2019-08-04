@@ -90,7 +90,7 @@ class MusicPage extends Component<MusicPagePropsT> {
             />
             <MainTitle>
               CV
-          </MainTitle>
+            </MainTitle>
             <CVBlock
               data={CVHistory}
             />
