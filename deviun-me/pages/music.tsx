@@ -31,12 +31,18 @@ class MusicPage extends Component<PropsT> {
         />
         <Cover
           image="/static/images/music-cover.jpg"
+          gradient="linear-gradient(180deg, rgba(22,33,37,0.46) 31%, #161E20 100%)"
           color="black"
           height="650px"
           mobileHeight="450px"
           key="main"
+          shadow="0px 5px 18px -4px rgba(0,0,0,1)"
         >
-          <HeaderCoverContent />
+          <HeaderCoverContent
+            tracks={300}
+            hours={20}
+            channelLink="tg://resolve?domain=followmood"
+          />
         </Cover>
         <Background
           gradient="linear-gradient(136deg, #171514 0%, #153745 100%)"

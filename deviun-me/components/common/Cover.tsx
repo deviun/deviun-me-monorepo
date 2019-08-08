@@ -13,6 +13,13 @@ interface CoverStyledPropsT {
   clipPath?: string;
   overflow?: string;
   mobileHeight?: string;
+  shadow?: string;
+}
+
+interface GradientCoverPropsT {
+  gradient?: string;
+  height?: string;
+  mobileHeight?: string;
 }
 
 const defaultPadding = '0px';
@@ -26,6 +33,9 @@ const CoverStyled = styled.div`
     background-image: url(${props.image});
     clip-path: ${props.clipPath || 'none'};
     overflow: ${props.overflow || 'hidden'};
+    -webkit-box-shadow: ${props.shadow || 'none'};
+    -moz-box-shadow: ${props.shadow || 'none'};
+    box-shadow: ${props.shadow || 'none'};
 
     @media(${mobileMediaProp}) {
       height: ${props.mobileHeight};
@@ -39,7 +49,19 @@ const CoverStyled = styled.div`
   transition: 0.15s;
 `;
 
-interface CoverPropsT extends CoverStyledPropsT {
+const GradientCover = styled.div`
+  ${(props: GradientCoverPropsT) => `
+    background-image: ${props.gradient};
+    height: ${props.height || defaultHeight}
+
+    @media(${mobileMediaProp}) {
+      height: ${props.mobileHeight};
+    }
+  `}
+  overflow: hidden;
+`;
+
+interface CoverPropsT extends CoverStyledPropsT, GradientCoverPropsT {
   children?: ReactNode;
   key?: any;
 }
@@ -48,11 +70,31 @@ export default function Cover({
   children,
   ...props
 }: CoverPropsT) {
-  return (
+  const CoverComponent = ({ children }: { children?: ReactNode }) => (
     <CoverStyled
       {...props}
     >
       {children}
     </CoverStyled>
+  );
+
+  if (!props.gradient) {
+    return (
+      <CoverComponent>
+        {children}
+      </CoverComponent>
+    );
+  }
+
+  return (
+    <CoverComponent>
+      <GradientCover
+        gradient={props.gradient}
+        height={props.height}
+        mobileHeight={props.mobileHeight}
+      >
+        {children}
+      </GradientCover>
+    </CoverComponent>
   );
 }
