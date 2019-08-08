@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 import metaData from '../constants/meta-data';
 
-import { loadPlaylists, PlaylistsT } from '../actions/playlists';
+import {
+  loadPlaylists, PlaylistsT, loadPageInfo, PageInfoT,
+} from '../actions/playlists';
 
 import Head from '../components/common/Head';
 import Cover from '../components/common/Cover';
@@ -12,18 +14,19 @@ import Background from '../components/common/Background';
 import Playlists from '../components/music/Playlists';
 import Padding from '../components/common/Padding';
 
-interface PropsT {
-  playlists: PlaylistsT;
-}
+interface PropsT extends PlaylistsT, PageInfoT {}
 
 class MusicPage extends Component<PropsT> {
   static async getInitialProps({ reduxStore }: any) {
-    await loadPlaylists(reduxStore.dispatch);
+    await Promise.all([
+      loadPlaylists(reduxStore.dispatch),
+      loadPageInfo(reduxStore.dispatch),
+    ]);
     return {};
   }
 
   render() {
-    const { playlists } = this.props.playlists;
+    const { playlists, stats, channel } = this.props;
     return (
       <>
         <Head
@@ -62,9 +65,17 @@ class MusicPage extends Component<PropsT> {
 }
 
 const mapStateToProps = ({
-  playlists = { playlists: [] },
-} = {}) => ({
+  playlists: {
+    playlists,
+    stats,
+    channel
+  },
+}: {
+  playlists: PropsT;
+}) => ({
   playlists,
+  stats,
+  channel,
 });
 
 export default connect(mapStateToProps)(MusicPage);

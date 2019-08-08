@@ -1,22 +1,36 @@
-import { PlaylistsT, loadPlaylistsT } from '../actions/playlists';
+import { PlaylistsT, loadPlaylistsT, PageInfoT, loadPageInfoT } from '../actions/playlists';
 import {
   SET_PLAYLISTS,
+  SET_PLAYLISTS_PAGE_INFO,
 } from '../actions/actionTypes';
 
-export const initialState: PlaylistsT = {
+interface playlistsStateT extends PageInfoT, PlaylistsT {}
+type actionT = loadPlaylistsT | loadPageInfoT;
+
+export const initialState: playlistsStateT = {
   playlists: [],
+  channel: '',
+  stats: {
+    hours: 0,
+    tracks: 0,
+  },
 };
 
+const justCopyActions = new Set([
+  SET_PLAYLISTS,
+  SET_PLAYLISTS_PAGE_INFO,
+]);
+
 export default function playlists(
-  state: PlaylistsT = initialState,
-  action: loadPlaylistsT,
+  state: playlistsStateT = initialState,
+  action: actionT,
 ): PlaylistsT {
-  switch (action.type) {
-    case SET_PLAYLISTS: {
-      return {
-        ...action.payload,
-      };
-    }
-    default: return state;
+  if (justCopyActions.has(action.type)) {
+    return {
+      ...state,
+      ...action.payload,
+    };
   }
+  
+  return state;
 }

@@ -56,4 +56,12 @@ export default class API {
   static async getSkillList() {
     return this.request('/object/skillList');
   }
+
+  static async getPlaylistsChannel() {
+    return this.request('/object/playlistsChannel');
+  }
+  
+  static async getPlaylistsStats() {
+    return this.request('/dynamic/playlistsStats');
+  }
 }
