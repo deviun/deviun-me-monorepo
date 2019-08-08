@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import metaData from '../constants/meta-data';
+
 import { loadPageInfo, PageInfoT } from '../actions/mainPageInfo';
 import { loadPhotoGrip, PhotoGridT } from '../actions/photoGrid';
 import { loadNotes } from '../actions/notes';
@@ -60,7 +62,9 @@ class MainPage extends Component<propsT> {
       <PageWidthWrapper
         maxWidth={1440}
       >
-        <Head />
+        <Head
+          metaData={metaData['index']}
+        />
         <Cover
           image={coverImage}
           color={defaultColor}

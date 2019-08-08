@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import metaData from '../constants/meta-data';
+
 import { loadPlaylists, PlaylistsT } from '../actions/playlists';
 
 import Head from '../components/common/Head';
@@ -25,7 +27,7 @@ class MusicPage extends Component<PropsT> {
     return (
       <>
         <Head
-          title="Music"
+          metaData={metaData['music']}
         />
         <Cover
           image="/static/images/music-cover.jpg"

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import metaData from '../constants/meta-data';
+
 import Head from '../components/common/Head';
 import Cover from '../components/common/Cover';
 import PageWidthWrapper from '../components/common/PageWidthWrapper';
@@ -63,7 +65,7 @@ class MusicPage extends Component<MusicPagePropsT> {
     return (
       <>
         <Head
-          title="Developer"
+          metaData={metaData['developer']}
         />
         <Cover
           image="/static/images/developer-cover.jpg"
