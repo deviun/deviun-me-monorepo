@@ -42,9 +42,9 @@ class MusicPage extends Component<PropsT> {
           shadow="0px 5px 18px -4px rgba(0,0,0,1)"
         >
           <HeaderCoverContent
-            tracks={300}
-            hours={20}
-            channelLink="tg://resolve?domain=followmood"
+            tracks={stats.tracks}
+            hours={stats.hours}
+            channelLink={channel}
           />
         </Cover>
         <Background
