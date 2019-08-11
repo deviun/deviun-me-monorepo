@@ -1,12 +1,13 @@
 import fetchPolyfill from 'node-fetch';
 import getConfig from 'next/config';
 
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig, serverRuntimeConfig } = getConfig();
 
-const API_SERVER = publicRuntimeConfig.API_SERVER;
+const { API_SERVER = '' } = publicRuntimeConfig || {};
+const { INTERNAL_API_SERVER = '' } = serverRuntimeConfig || {};
 const fetch = typeof window !== 'undefined' ? window.fetch : fetchPolyfill;
 
-const getUrl = (path: string) => `${API_SERVER}${path}`;
+const getUrl = (path: string) => `${INTERNAL_API_SERVER || API_SERVER}${path}`;
 
 export default class API {
   static async request(path: string) {

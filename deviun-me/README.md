@@ -8,7 +8,8 @@
 
 Make file `.env` at root folder.
 
-`API_SERVER` — URL to API server.
+`API_SERVER` — URL to API server for frontend.
+`INTERNAL_API_SERVER` — Relative URL to API server for backend.
 
 ## INSTALL
 
