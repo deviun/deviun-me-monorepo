@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import YMEvent from '../common/YMEvent';
 
-import { seasonTitles } from '../../constants/season-titles';
+import { seasonTitles, monthTitles } from '../../constants/season-titles';
 import { mobileMediaProp } from '../../constants/style';
 
 export interface PlaylistsItemT {
@@ -70,21 +70,41 @@ const PlaylistCoverStyled = styled.div`
 `;
 
 const PlaylistCoverShadowStyled = styled.div`
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.60);
   width: 200px;
   height: 200px;
   text-align: center;
+  overflow: hidden;
 
   .play-button {
-    margin-top: 65px;
+    margin: 20px auto;
+  }
+
+  .month-title, .duration-title {
+    color: white;
+    font-weight: 200;
+  }
+
+  .month-title {
+    margin-top: 22px;
+    font-size: 19px;
+  }
+
+  .duration-title {
+    font-size: 16px;
   }
 
   @media(${mobileMediaProp}) {
     width: 100px;
     height: 100px;
 
+    .month-title, .duration-title {
+      display: none;
+    }
+
     .play-button {
       margin-top: 25px;
+      margin-bottom: 0px;
       height: 50px; 
     }
   }
@@ -95,7 +115,7 @@ const PlaylistTitleStyled = styled.div`
   text-align: center;
   padding: 10px;
   max-width: 180px;
-  word-break: break-all;
+  word-break: break-word;
 
   @media(${mobileMediaProp}) {
     max-width: 80px;
@@ -145,7 +165,7 @@ export default function Playlists({
   reversedLists.forEach(({
     year = defaultYear,
     month = defaultMonth,
-    link, cover, name,
+    link, cover, name, time,
   }) => {
     const seasonTitle = seasonTitles[month];
     let seasonIndex = seasonIndexes[getSeasonIndexName(year, seasonTitle)];
@@ -164,7 +184,9 @@ export default function Playlists({
         <a href={link} onClick={() => YMEvent('openPlaylist')} target="_blank">
           <PlaylistCoverStyled image={cover}>
             <PlaylistCoverShadowStyled className="shadow-box">
+              <div className="month-title">{monthTitles[month]}</div>
               <img src="/static/images/play-button.svg" className="play-button" />
+              <div className="duration-title">{time}</div>
             </PlaylistCoverShadowStyled>
           </PlaylistCoverStyled>
           <PlaylistTitleStyled>{name}</PlaylistTitleStyled>
