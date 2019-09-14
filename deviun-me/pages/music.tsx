@@ -26,7 +26,7 @@ class MusicPage extends Component<PropsT> {
   }
 
   render() {
-    const { playlists, stats, channel } = this.props;
+    const { playlists, stats } = this.props;
     return (
       <>
         <Head
@@ -44,11 +44,10 @@ class MusicPage extends Component<PropsT> {
           <HeaderCoverContent
             tracks={stats.tracks}
             hours={stats.hours}
-            channelLink={channel}
           />
         </Cover>
         <Background
-          gradient="linear-gradient(136deg, #171514 0%, #153745 100%)"
+          gradient="linear-gradient(125.55deg, #191E20 -5.97%, #1F3D4E 102.1%)"
         >
           <Padding
             top="50px"
@@ -68,14 +67,12 @@ const mapStateToProps = ({
   playlists: {
     playlists,
     stats,
-    channel
   },
 }: {
   playlists: PropsT;
 }) => ({
   playlists,
   stats,
-  channel,
 });
 
 export default connect(mapStateToProps)(MusicPage);

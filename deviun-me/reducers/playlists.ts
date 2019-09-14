@@ -9,7 +9,6 @@ type actionT = loadPlaylistsT | loadPageInfoT;
 
 export const initialState: playlistsStateT = {
   playlists: [],
-  channel: '',
   stats: {
     hours: 0,
     tracks: 0,

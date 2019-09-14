@@ -42,6 +42,7 @@ const AvatarStyled = styled.img`
   position: relative;
   top: -80px;
   box-shadow: 0 2px 4px 0 rgba(181,181,181,0.50);
+  background-color: white;
 `;
 
 class MusicPage extends Component<MusicPagePropsT> {
@@ -69,7 +70,7 @@ class MusicPage extends Component<MusicPagePropsT> {
         />
         <Cover
           image="/static/images/developer-cover.jpg"
-          height="425px"
+          height="500px"
           mobileHeight="250px"
         />
         <PageWidthWrapper

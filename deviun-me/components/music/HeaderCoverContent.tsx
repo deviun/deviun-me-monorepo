@@ -7,7 +7,6 @@ import YMEvent from '../common/YMEvent';
 interface HeaderCoverContentPropsT {
   tracks: number;
   hours: number;
-  channelLink: string;
 }
 
 const MusicCoverContainer = styled.div`
@@ -39,7 +38,7 @@ const MusicCoverContainer = styled.div`
 
 const StatShape = styled.div`
   display: inline-block;
-  margin: 5px 25px;
+  margin: 5px 15px;
 
   a {
     text-decoration: none;
@@ -94,16 +93,6 @@ export default function HeaderCoverContent(props: HeaderCoverContentPropsT) {
         </div>
         <div className="title">
           tracks
-        </div>
-      </StatShape>
-      <StatShape>
-        <a href={props.channelLink} onClick={() => YMEvent('musicGetNew')}>
-          <div className="text blue animated">
-            GET NEW
-          </div>
-        </a>
-        <div className="title bold">
-          On release
         </div>
       </StatShape>
       <StatShape>

@@ -13,7 +13,6 @@ export interface PlaylistsT {
 }
 
 export interface PageInfoT {
-  channel: string;
   stats: {
     tracks: number;
     hours: number;
@@ -50,19 +49,12 @@ export const loadPlaylists = async (dispatch: Function) => {
 };
 
 export const loadPageInfo = async (dispatch: Function) => {
-  const [
-    { ok: statsOk, result: statsResult },
-    { ok: channelOk, result: channelResult },
-  ]: any = await Promise.all([
-    API.getPlaylistsStats(),
-    API.getPlaylistsChannel(),
-  ]);
+  const { ok: statsOk, result: statsResult }: any = await API.getPlaylistsStats();
 
-  if (statsOk && channelOk) {
+  if (statsOk) {
     return dispatch({
       type: SET_PLAYLISTS_PAGE_INFO,
       payload: {
-        channel: channelResult.data.link,
         stats: statsResult,
       },
     });
@@ -71,7 +63,5 @@ export const loadPageInfo = async (dispatch: Function) => {
   console.error({
     statsOk,
     statsResult,
-    channelOk,
-    channelResult,
   });
 }
