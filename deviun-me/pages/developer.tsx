@@ -70,7 +70,7 @@ class MusicPage extends Component<MusicPagePropsT> {
         />
         <Cover
           image="/static/images/developer-cover.jpg"
-          height="500px"
+          height="450px"
           mobileHeight="250px"
         />
         <PageWidthWrapper
